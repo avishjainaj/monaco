@@ -27,7 +27,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf(AbstractHttpConfigurer::disable).
                 authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests.requestMatchers("/v1/auth/**", "/health", "h2-console/**").permitAll()
+                        authorizeRequests.requestMatchers("/v1/auth/**", "/health", "/h2-console/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
